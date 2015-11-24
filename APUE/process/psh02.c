@@ -48,3 +48,16 @@ execute (char * arglist[])
         printf("child exit with status %d\n", exitstatus);
     }
 }
+
+char * makestring(char *buf)
+{
+    char *cp, *malloc();
+    buf[strlen(buf)-1] = '\0';
+    cp = malloc(strlen(buf)+1);
+    if (cp==NULL) {
+        fprintf(stderr, "no memory\n");
+        exit(1);
+    }
+    strcpy(cp, buf);
+    return cp;
+}
